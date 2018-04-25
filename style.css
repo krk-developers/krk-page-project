@@ -14,6 +14,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
+  z-index: 100;
+}
+.upperBar.active{
+  background: #fff;
 }
 .upperBar .logo{
   width: 130px;
@@ -27,9 +32,24 @@
   height: 30px;
   background: #000;
   margin: 25px;
+  cursor: pointer;
 }
-.upperBar nav{
-  display: none;
+nav{
+  position: fixed;
+  width: 100%;
+  height: 500px;
+  top: 80px;
+  left: 0;
+  padding-top: 80px;
+  background: #fff;
+  color: #000;
+  font-size: 40px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 90;
+}
+nav>ul{
+  list-style-type: none;
 }
 
 /* ----- HEADER ------------------------------------------*/
