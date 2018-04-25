@@ -14,7 +14,18 @@ $(document).ready(function() {
   }); // window size --------------------
 
 
-  // open menu ----------------------------
+
+  openMenu(); // --------
+ 
+  scrollTo(); // --------
+
+  map();  // ------------
+  
+}); // ready -----------------
+
+
+function openMenu(){  // --------------------------
+
   const $menuBtn = $(".menuBtn");
   const $nav = $("nav");
   const $upperBar = $(".upperBar");
@@ -33,31 +44,30 @@ $(document).ready(function() {
       $menuBtn.addClass("active");
       $nav.slideDown(300);
     }
-  }); // open menu ------------------------
+  });
 
-  
-  // scroll to --------------------------
-  const $navi = $('.navi');
+} // open menu --------------------------------------
+
+
+function scrollTo(){  // ---------------------------
+
+ const $navi = $('.navi');
     
-    $navi.click(function(e){
-        
-        let _href = $(this).attr("href");
-        
-        e.preventDefault();
-        
-        $('html, body').animate({
-            scrollTop: $(_href).offset().top
-        } ,800);
+ $navi.click(function(e){
+     
+     let _href = $(this).attr("href");
+     
+     e.preventDefault();
+     
+     $('html, body').animate({
+         scrollTop: $(_href).offset().top
+     } ,800);
 
-        location.hash = _href;
-        
-    }); // scroll to -------------------------
+     location.hash = _href;
+     
+ });
 
-
-  map();
-  
-}); // ready -----------------
-
+} // scroll to ----------------------------------
 
 
 

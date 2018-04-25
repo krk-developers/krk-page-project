@@ -18,11 +18,11 @@
   z-index: 100;
 }
 .upperBar.active{
-  background: #fff;
+  background: #f7f7f7;
 }
 .upperBar .logo{
   width: 130px;
-  background: #fff;
+  background: #f7f7f7;
 }
 .upperBar img{
   width: 130px;
@@ -41,7 +41,7 @@ nav{
   top: 80px;
   left: 0;
   padding: 30px;
-  background: #fff;
+  background: #f7f7f7;
   font-size: 40px;
   display: flex;
   justify-content: flex-end;
@@ -54,6 +54,14 @@ nav a{
   text-decoration: none;
   color: #000;
 }
+nav li:first-child{
+  text-align: right;
+  margin-bottom: 20px;
+}
+nav .lang{
+  font-size: 30px;
+  margin: 0 20px;
+}
 
 /* ----- HEADER ------------------------------------------*/
 
@@ -62,6 +70,7 @@ header{
   height: 100vh;
   display: flex;
   justify-content: center;
+  background: #f7f7f7;
 }
 header>div{
   width: 800px;
@@ -88,7 +97,7 @@ header h1{
 .s1>div{
   width: 800px;
   height: 600px;
-  background: #fff;
+  background: #f7f7f7;
 }
 
 /* ----- SECTION 2 ------------------------------------------*/
@@ -141,7 +150,7 @@ header h1{
 .s3>div{
   width: 800px;
   height: 600px;
-  background: #fff;
+  background: #f7f7f7;
 }
 
 /* ----- SECTION 4 ------------------------------------------*/
