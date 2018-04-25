@@ -4,6 +4,32 @@
   box-sizing: border-box;
 }
 
+.upperBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.upperBar .logo{
+  width: 130px;
+  background: #fff;
+}
+.upperBar img{
+  width: 130px;
+}
+.menuBtn{
+  width: 30px;
+  height: 30px;
+  background: #000;
+  margin: 25px;
+}
+.upperBar nav{
+  display: none;
+}
+
 header{
   width: 100%;
   height: 100vh;
@@ -17,11 +43,15 @@ header>div{
   justify-content: center;
   align-items: center;
 }
+header h1{
+  font-size: 50px;
+  margin-bottom: 30px;
+}
 
 .s1{
   width: 100%;
   height: 800px;
-  background: darkgray;
+  background: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,11 +92,15 @@ header>div{
   grid-column: 3;
   grid-row: 2;
 }
+.s2 h2{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
 
 .s3{
   width: 100%;
   height: 800px;
-  background: darkgray;
+  background: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,8 +118,14 @@ header>div{
   grid-template-columns: 1fr repeat(4, 250px) 1fr;
   grid-template-rows: repeat(3, 1fr);
 }
+.s4-elem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
 .s4-header{
-  grid-column: 2/5;
+  grid-column: 2/6;
   grid-row: 1;
 }
 .s4-e1{
@@ -124,7 +164,7 @@ header>div{
 .s5{
   width: 100%;
   height: 800px;
-  background: darkgray;
+  background: #1f1f1f;
   display: flex;
   justify-content: center;
   align-items: center;
