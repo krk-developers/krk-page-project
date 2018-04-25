@@ -35,6 +35,23 @@ $(document).ready(function() {
     }
   }); // open menu ------------------------
 
+  
+  // scroll to --------------------------
+  const $navi = $('.navi');
+    
+    $navi.click(function(e){
+        
+        let _href = $(this).attr("href");
+        
+        e.preventDefault();
+        
+        $('html, body').animate({
+            scrollTop: $(_href).offset().top
+        } ,800);
+
+        location.hash = _href;
+        
+    }); // scroll to -------------------------
 
 
   map();
