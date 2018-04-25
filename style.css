@@ -228,6 +228,18 @@ header h1{
   color: #fff;
   padding: 50px;
 }
+.s5 .socials{
+  font-size: 50px;
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.s5 .socials i{
+  margin: 30px;
+  cursor: pointer;
+  color: #fff;
+}
 .s5 .map{
   grid-column: 2/5;
   grid-row: 4;
