@@ -15,6 +15,10 @@ $(document).ready(function() {
 
 
 
+
+
+  slider();
+
   openMenu(); // --------
  
   scrollTo(); // --------
@@ -22,6 +26,25 @@ $(document).ready(function() {
   map();  // ------------
   
 }); // ready -----------------
+
+
+
+function slider(){  // ------------------------------
+
+  let $slider = $(".slider");
+
+  setInterval(function(){
+
+    $slider.animate({"right":"800px"},1000);
+    
+    setTimeout(function(){
+      $slider.css("right","0");
+      $(".el:first").appendTo(".slider");
+    }, 1100);
+
+  },4000);
+
+} // slider ---------------------------------------
 
 
 function openMenu(){  // --------------------------
