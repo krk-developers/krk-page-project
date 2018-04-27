@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+body{
+  --darkBG: #1f1f1f;
+  --lightBG: #f7f7f7;
+}
+
 /* ----- MENU ------------------------------------------*/
 
 .upperBar{
@@ -18,34 +23,110 @@
   z-index: 100;
 }
 .upperBar.active{
-  background: #f7f7f7;
+  background: var(--lightBG);
 }
 .upperBar .logo{
   width: 130px;
-  background: #f7f7f7;
+  background: var(--lightBG);
 }
 .upperBar img{
   width: 130px;
 }
+
 .menuBtn{
   width: 30px;
   height: 30px;
-  background: #000;
-  margin: 25px;
+  margin: 10px 25px 0 0;
   cursor: pointer;
+  padding-top: 20px;
 }
+.menuBtnBar{
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: var(--darkBG);
+}
+.menuBtn .mbb1{
+  bottom: 5px;
+}
+.menuBtn .mbb3{
+  top: 5px;
+}
+.menuBtn .darkField{
+  background: var(--lightBG);
+}
+.menuBtn.active .menuBtnBar{
+  background: var(--darkBG);
+}
+
+.menuBtn.active .mbb1{
+  bottom: 5px;
+  transform-origin: 16px 1px 0;
+  animation: open1 400ms linear 1 forwards;
+}
+@keyframes open1{
+  50%{ bottom: -3px; transform: rotate(0deg); }
+  100%{ bottom: -3px; transform: rotate(45deg); }
+}
+.menuBtn.active .mbb2{
+  animation: open2 200ms linear 1 forwards;
+}
+@keyframes open2{
+  100%{ opacity: 0; }
+}
+.menuBtn.active .mbb3{
+  top: 5px;
+  transform-origin: 14px 0 0;
+  animation: open3 400ms linear 1 forwards;
+}
+@keyframes open3{
+  50%{ top: -3px; transform: rotate(0deg); }
+  100%{ top: -3px; transform: rotate(-45deg); }
+}
+
+.menuBtn.deactive .mbb1{
+  bottom: 5px;
+  transform-origin: 16px 1px 0;
+  animation: close1 400ms linear 1;
+}
+@keyframes close1{
+  0%{ bottom: -3px; transform: rotate(45deg); }
+  50%{ bottom: -3px; transform: rotate(0deg); }
+  100%{ bottom: 5px; transform: rotate(0deg); }
+}
+.menuBtn.deactive .mbb2{
+  animation: close2 400ms linear 1;
+}
+@keyframes close2{
+  0%{ opacity: 0; }
+  50%{ opacity: 0; }
+  100%{ opacity: 1; }
+}
+.menuBtn.deactive .mbb3{
+  top: 5px;
+  transform-origin: 14px 0 0;
+  animation: close3 400ms linear 1;
+}
+@keyframes close3{
+  0%{ top: -3px; transform: rotate(-45deg); }
+  50%{ top: -3px; transform: rotate(0deg); }
+  100%{ top: 5px; transform: rotate(0deg); }
+}
+
 nav{
   position: fixed;
   width: 100%;
-  height: 300px;
-  top: 80px;
+  height: 100vh;
+  top: 0;
   left: 0;
-  padding: 30px;
-  background: #f7f7f7;
+  padding: 100px 40px 0 0;
+  background: var(--lightBG);
   font-size: 40px;
   display: flex;
   justify-content: flex-end;
-  z-index: 90;
+  opacity: 0;
+  z-index: -1;
 }
 nav ul{
   list-style-type: none;
@@ -53,6 +134,9 @@ nav ul{
 nav a{
   text-decoration: none;
   color: #000;
+}
+nav a:hover{
+  text-shadow: 2px 2px 5px gray;
 }
 nav li:first-child{
   text-align: right;
@@ -62,6 +146,21 @@ nav .lang{
   font-size: 30px;
   margin: 0 20px;
 }
+nav.active{
+  animation: showMenu 400ms linear 1 forwards;
+}
+@keyframes showMenu{
+  0%{ opacity: 0; z-index: 90; }
+  100%{ opacity: 1; z-index: 90; }
+}
+nav.deactive{
+  animation: hideMenu 500ms linear 1;
+}
+@keyframes hideMenu{
+  0%{ opacity: 1; z-index: 90; }
+  80%{ opacity: 0; z-index: 90; }
+  100%{ z-index: -1; }
+}
 
 /* ----- HEADER ------------------------------------------*/
 
@@ -70,7 +169,7 @@ header{
   height: 100vh;
   display: flex;
   justify-content: center;
-  background: #f7f7f7;
+  background: var(--lightBG);
 }
 header>div{
   width: 800px;
@@ -92,7 +191,7 @@ header h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #1f1f1f;
+  background: var(--darkBG);
   overflow: hidden;
 }
 .s1 .window{
@@ -104,11 +203,11 @@ header h1{
   grid-template-columns: 1fr 800px 1fr;
 }
 .s1 .windowL{
-  background: #1f1f1f;
+  background: var(--darkBG);
   grid-column: 1;
 }
 .s1 .windowR{
-  background: #1f1f1f;
+  background: var(--darkBG);
   grid-column: 3;
 }
 .s1 .slider{
@@ -140,7 +239,7 @@ header h1{
   display: grid;
   grid-template-columns: 1fr 400px 400px 1fr;
   grid-template-rows: 360px;
-  background: #f7f7f7;
+  background: var(--lightBG);
   grid-gap: 20px;
   padding-top: 60px;
 }
@@ -175,7 +274,7 @@ header h1{
 .s3{
   width: 100%;
   height: 800px;
-  background: #1f1f1f;
+  background: var(--darkBG);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,7 +282,7 @@ header h1{
 .s3>div{
   width: 800px;
   height: 600px;
-  background: #f7f7f7;
+  background: var(--lightBG);
 }
 
 /* ----- SECTION 4 ------------------------------------------*/
@@ -192,6 +291,7 @@ header h1{
   width: 100%;
   height: 800px;
   display: grid;
+  background: var(--lightBG);
   grid-template-columns: 1fr repeat(4, 250px) 1fr;
   grid-template-rows: repeat(3, 1fr);
 }
@@ -243,7 +343,7 @@ header h1{
 .s5{
   width: 100%;
   height: 1200px;
-  background: #1f1f1f;
+  background: var(--darkBG);
   display: grid;
   grid-template-columns: 1fr repeat(3, 300px) 1fr;
   grid-template-rows: repeat(3, 1fr) 500px;

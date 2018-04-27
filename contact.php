@@ -14,7 +14,7 @@ print ("<span class=blad>Musisz wpisać treść</span><br>");
 else {
   $bool = mail($_POST["email"],$_POST["content"],$_POST["name"]);
   if ($bool == false and sprawdz_mail($_POST["email"]) == 0) print "<span class=blad>Coś poszło nie tak serwer mail jest chyba przeciażony</span><br>";
-  else header("location: ./index.html");
+  else header("location: ./index.html#contact");
 }
 
 
