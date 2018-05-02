@@ -191,6 +191,54 @@ header h1{
   margin-bottom: 30px;
 }
 
+.cube{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg);
+  transition: 2s linear;
+  animation: move 6s linear alternate infinite;
+  margin-bottom: 150px;
+}
+@keyframes move{
+  20%{ transform: rotateX(20deg) rotateY(20deg) rotateZ(20deg); }
+  80%{ transform: rotateX(340deg) rotateY(160deg) rotateZ(160deg); }
+  100%{ transform: rotateX(340deg) rotateY(160deg) rotateZ(160deg); }
+}
+
+.cube>div{
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  background: #fff;
+  border: 3px solid #353535;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff url("files/KRK-DS-Logo.png") no-repeat center;
+  background-size: contain;
+}
+
+.front{
+  transform: rotateX(0deg) translateZ(150px);
+}
+.back{
+  transform: rotateX(180deg) translateZ(150px);
+}
+.left{
+  transform: rotateY(-90deg) translateZ(150px);
+}
+.right{
+  transform: rotateY(90deg) translateZ(150px);
+}
+.top{
+  transform: rotateX(90deg) translateZ(150px);
+}
+.bottom{
+  transform: rotateX(-90deg) translateZ(150px);
+}
+
 /* ----- SECTION 1 ------------------------------------------*/
 
 .s1{
