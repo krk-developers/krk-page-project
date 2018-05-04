@@ -1,40 +1,57 @@
 <?php
 
-if (sprawdz_mail($_POST["email"]) == -1) {
+$valid = true;
+
+if(isset($_REQUEST["name"])){
+  $name = $_REQUEST["name"];
+}
+else{
+  echo "Musisz podać imię<br>";
+  $valid = false;
+}
+
+if(isset($_REQUEST["email"])){
+  $email = $_REQUEST["email"];
+}
+else{ 
+  echo "Musisz podać adres email.<br>";
+  $valid = false;
+}
+
+if(isset($email) && sprawdz_mail($email) == -1) {
+  echo "Niepoprawny adres email.<br>";
+  $valid = false;
+}
+
+if(isset($_REQUEST["content"])){
+  $content = $_REQUEST["content"];
+}
+else{
+  echo "Musisz wpisać wiadomość.";
+  $valid = false;
+}
+
+
+if($valid){
+  $header = "Wiadomość od: " . $email;
+  $send_email = mail("sztefkokamil@gmail.com", "pytanie", $content);
   
-  print ("<span class=blad>Email jest nie prawidłowy</span><br>");
-  
+  if ($send_email == false){
+    echo "Błąd wysłania wiadomości";
+  }
 }
-if ($_POST["name"] == "") {
-print ("<span class=blad>Musisz wpisać imię</span><br>");
-}
-if ($_POST["content"] == "") {
-print ("<span class=blad>Musisz wpisać treść</span><br>");
-}
-else {
-  $bool = mail($_POST["email"],$_POST["content"],$_POST["name"]);
-  if ($bool == false and sprawdz_mail($_POST["email"]) == 0) print "<span class=blad>Coś poszło nie tak serwer mail jest chyba przeciażony</span><br>";
-  else header("location: ./index.html#contact");
-}
-
-
-
 
 
 function sprawdz_mail($mail) {
 
-// przypisanie adresu e-mail do zmiennej
-//$email = $_POST['email'];
+  $sprawdz = '/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,4}$/';
 
-// formuła prawidłowego adresu e-mail 
-$sprawdz = '/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,4}$/';
-
-if(preg_match($sprawdz, $mail))
-  return 0;
-else
-  return -1;
-
-
+  if(preg_match($sprawdz, $mail)){
+    return 0;
+  }
+  else{
+    return -1;
+  }
 }
 
 ?>

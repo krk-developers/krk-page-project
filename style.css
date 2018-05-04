@@ -418,7 +418,7 @@ header h1{
   grid-column: 2/4;
   grid-row: 2/4;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 100px 200px 100px;
   grid-gap: 20px;
 }
@@ -446,6 +446,13 @@ header h1{
   grid-row: 3;
   width: 200px;
   height: 50px;
+}
+.s5 .form-error{
+  grid-column: 2;
+  grid-row: 3;
+  color: red;
+  font-size: 20px;
+  text-align: center;
 }
 .s5 .aside{
   grid-column: 4;

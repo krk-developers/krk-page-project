@@ -4,20 +4,20 @@
 $(document).ready(function() {
 
   // window size ----------------------
-  const $window = $(window);
-  const $header = $("#header");
-  let W = $window.width();
-  let H = $window.height();
-  let hH = $header.height();
+  // const $window = $(window);
+  // const $header = $("#header");
+  // let W = $window.width();
+  // let H = $window.height();
+  // let hH = $header.height();
 
-  $window.resize(()=>{
-    W = $window.width();
-    H = $window.height();
-    hH = $header.height();
-  }); // window size --------------------
+  // $window.resize(()=>{
+  //   W = $window.width();
+  //   H = $window.height();
+  //   hH = $header.height();
+  // }); // window size --------------------
 
 
-
+  formSend(); // ---------------
 
   slider(); // -----------
 
@@ -31,6 +31,63 @@ $(document).ready(function() {
   
 }); // ready -----------------
 
+
+function formSend(){  // ------------------------
+
+  const formError = $(".form-error");
+
+  $("input.button").on("click", function(event){
+    
+    event.preventDefault();
+
+    let name = $(".name").val();
+    let email = $(".email").val();
+    let content = $(".textarea").val();
+    let valid = true;
+
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    formError.text("");
+
+    // sprawdzenie poprawności -----------------
+    if(name==""){ 
+      formError.append("Musisz podać imię.<br>");
+      valid = false;
+     }
+    if(email==""){
+      formError.append("Musisz podać adres email.<br>");
+      valid = false;
+    }
+    else if(!emailRegex.test(email)){
+      formError.append("Niepoprawny adres email.<br>");
+      valid = false;
+    }
+    if(content==""){
+      formError.append("Musisz wpisać wiadomość.");
+      valid = false;
+    } // sprawdzenie poprawności ----------------
+
+    // zapytanie do serwera ------------------
+    if(valid){
+
+      let XHR = new XMLHttpRequest();
+      
+      XHR.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            formError.text(this.responseText);
+            console.log(this.responseText);
+        }
+      }
+
+      XHR.open("POST", "contact.php", true);
+      XHR.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      XHR.send("name="+name+"&email="+email+"&content="+content);
+
+    } // zapytanie do serwera ----------------
+
+  }); // submit click -------------------------
+
+} // formSend --------------------------------------
 
 
 function slider(){  // ------------------------------
