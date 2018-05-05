@@ -2,28 +2,28 @@
 
 $valid = true;
 
-if(isset($_REQUEST["name"])){
+if($_REQUEST["name"] != ""){
   $name = $_REQUEST["name"];
 }
 else{
-  echo "Musisz podać imię<br>";
+  echo "Musisz podać imię.\n";
   $valid = false;
 }
 
-if(isset($_REQUEST["email"])){
+if($_REQUEST["email"] != ""){
   $email = $_REQUEST["email"];
 }
 else{ 
-  echo "Musisz podać adres email.<br>";
+  echo "Musisz podać adres email.\n";
   $valid = false;
 }
 
 if(isset($email) && sprawdz_mail($email) == -1) {
-  echo "Niepoprawny adres email.<br>";
+  echo "Niepoprawny adres email.\n";
   $valid = false;
 }
 
-if(isset($_REQUEST["content"])){
+if($_REQUEST["content"] != ""){
   $content = $_REQUEST["content"];
 }
 else{
@@ -33,11 +33,14 @@ else{
 
 
 if($valid){
-  $header = "Wiadomość od: " . $email;
-  $send_email = mail("sztefkokamil@gmail.com", "pytanie", $content);
+  $subject = "Wiadomość od: ".$name." (".$email.")";
+  $send_email = mail("sztefkokamil@gmail.com", $subject, $content);
   
   if ($send_email == false){
-    echo "Błąd wysłania wiadomości";
+    echo "Wiadomość nie została wysłana - błąd serwera.\nSpróbuj ponownie za kilka minut.";
+  }
+  else{
+    echo "Twoja wiadomość została wysłana.\nDziękujemy.";
   }
 }
 
