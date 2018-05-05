@@ -168,7 +168,7 @@ function scrollTo(){  // ---------------------------
     
   $navi.click(function(e){
 
-    if(!$(this).hasClass("logo")){
+    if($menuBtn.hasClass("active")){
       $menuBtn.removeClass("active");
       $nav.removeClass("active");
       $menuBtn.addClass("deactive");
