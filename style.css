@@ -7,6 +7,7 @@
 body{
   --darkBG: #1f1f1f;
   --lightBG: #f7f7f7;
+  font-family: "Roboto";
 }
 
 /* ----- MENU ------------------------------------------*/
@@ -278,7 +279,9 @@ header h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 60px;
+  font-size: 50px;
+  text-align: center;
+  padding: 50px;
 }
 .el1, .el3, .el5, .el7{
   background: white;
@@ -329,16 +332,23 @@ header h1{
 
 .s3{
   width: 100%;
-  height: 800px;
   background: var(--darkBG);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 50px;
 }
 .s3>div{
   width: 800px;
-  height: 600px;
-  background: var(--lightBG);
+  /* background: var(--lightBG); */
+}
+.s3 img{
+  width: 800px;
+}
+.s3 .s3-image{
+  margin-top: 50px;
+  color: #fff;
+  text-align: center;
 }
 
 /* ----- SECTION 4 ------------------------------------------*/
