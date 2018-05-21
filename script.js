@@ -1,21 +1,17 @@
-
-// $("nav").hide();
-
 $(document).ready(function() {
 
   // window size ----------------------
   const $window = $(window);
-  const $header = $("#header");
+  //const $header = $("#header");
   let W = $window.width();
-  let H = $window.height();
-  let hH = $header.height();
+  //let H = $window.height();
+  //let hH = $header.height();
 
-  $window.resize(()=>{
-    W = $window.width();
-    H = $window.height();
-    hH = $header.height();
-  }); // window size --------------------
-
+  // $window.resize(()=>{
+  //   W = $window.width();
+  //   H = $window.height();
+  //   hH = $header.height();
+  // }); // window size --------------------
 
   formSend(); // ---------------
 
@@ -119,16 +115,18 @@ function menuColor(){ // -------------------------
   const $window = $(window);
   const $header = $("#header");
   let hH = $header.height();
-  // dark fields
-  const df1 = hH;
-  const df2 = hH + 1600;
-  const df3 = hH + 3200;
-
+ 
+  const about = $('#about').position().top;
+  const section2 = $('#section2').position().top;
+  const offer = $('#offer').position().top;
+  const partners = $('#partners').position().top;
+  const contect = $('#contact').position().top;
+  
   $window.scroll(()=>{
 
     let mbp = pageYOffset + 30; // menu button position
 
-    if((mbp>df1&&mbp<df1+800)||(mbp>df2&&mbp<df2+800)||(mbp>df3&&mbp<df3+800)){
+    if((mbp>about&&mbp<section2)||(mbp>offer&&mbp<partners)||(mbp>contect)){
       $(".menuBtnBar").addClass("darkField");
     }
     else{
