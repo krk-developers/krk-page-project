@@ -4,22 +4,22 @@
 $(document).ready(function() {
 
   // window size ----------------------
-  // const $window = $(window);
-  // const $header = $("#header");
-  // let W = $window.width();
-  // let H = $window.height();
-  // let hH = $header.height();
+  const $window = $(window);
+  const $header = $("#header");
+  let W = $window.width();
+  let H = $window.height();
+  let hH = $header.height();
 
-  // $window.resize(()=>{
-  //   W = $window.width();
-  //   H = $window.height();
-  //   hH = $header.height();
-  // }); // window size --------------------
+  $window.resize(()=>{
+    W = $window.width();
+    H = $window.height();
+    hH = $header.height();
+  }); // window size --------------------
 
 
   formSend(); // ---------------
 
-  slider(); // -----------
+  slider(W); // -----------
 
   menuColor() // ------------
 
@@ -90,13 +90,19 @@ function formSend(){  // ------------------------
 } // formSend --------------------------------------
 
 
-function slider(){  // ------------------------------
+function slider(W){  // ------------------------------
 
   let $slider = $(".slider");
+  let slide;
+
+  if(W > 840){ slide = "800px"; }
+  else if(W <= 840 && W > 641){ slide = "600px"; }
+  else if(W <= 640 && W > 441){ slide = "400px"; }
+  else if(W <= 440){ slide = "300px"; }
 
   setInterval(function(){
 
-    $slider.animate({"right":"800px"},1000);
+    $slider.animate({"right":slide},1000);
     
     setTimeout(function(){
       $slider.css("right","0");
