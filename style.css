@@ -141,6 +141,7 @@ nav{
 }
 nav ul{
   list-style-type: none;
+  width: 250px;
 }
 nav a{
   text-decoration: none;
@@ -156,6 +157,10 @@ nav li:first-child{
 nav .lang{
   font-size: 30px;
   margin: 0 20px;
+  cursor: pointer;
+}
+nav .lang:hover{
+  text-shadow: 2px 2px 5px gray;
 }
 nav.active{
   animation: showMenu 400ms linear 1 forwards;

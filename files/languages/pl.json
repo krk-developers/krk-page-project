@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "O NAS",
+    "offer": "OFERTA",
+    "partners": "PARTNERZY",
+    "contact": "KONTAKT"
+  },
+  "header": "sample",
+  "about": {
+    "el1": "PL - Lorem ipsum dolor sit amet consectetur, adipiscing elit facilisis.",
+    "el2": "PL - Nulla cubilia urna semper et proin, phasellus vitae tempus hendrerit.",
+    "el3": "PL - Vehicula magnis odio quam, sociosqu in eleifend, felis convallis.",
+    "el4": "PL - Suscipit luctus quisque interdum taciti vulputate, condimentum integer sapien cras.",
+    "el5": "PL - Est vehicula convallis lacinia tempor aliquam, pulvinar cum in.",
+    "el6": "PL - Fringilla placerat dictumst a, vel urna semper, risus rutrum.",
+    "el7": "PL - Nascetur a varius velit ut non, facilisis felis venenatis.",
+    "el8": "PL - Vitae vehicula sagittis vulputate vel phasellus, mi id pellentesque."
+  },
+  "section2": {
+    "h2": {
+      "head1": "Sekcja 1",
+      "head2": "Sekcja 2",
+      "head3": "Sekcja 3",
+      "head4": "Sekcja 4"
+    },
+    "p": {
+    "p1": "PL - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p2": "PL - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p3": "PL - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p4": "PL - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    }
+  },
+  "offer": {
+    "figcap1": "Obraz 1",
+    "figcap2": "Obraz 2",
+    "figcap3": "Obraz 3",
+    "figcap4": "Obraz 4"
+  },
+  "partners": "Nasi partnerzy",
+  "contact": {
+    "head": "KONTAKT",
+    "name": "podaj swoje imię",
+    "email": "podaj swój email",
+    "message": "wpisz wiadomość",
+    "button": "Wyślij",
+    "aside": "Nasz adres email"
+  },
+  "footer": "KRK Partnerzy Digital Solutions 2018 &copy &#8195 Wszelkie prawa zastrzeżone."
+}

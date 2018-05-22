@@ -1,3 +1,5 @@
+var language = 'pl';
+
 $(document).ready(function() {
 
   // window size ----------------------
@@ -13,6 +15,12 @@ $(document).ready(function() {
   //   hH = $header.height();
   // }); // window size --------------------
 
+  const pl = $('#pl-switch');
+  const en = $('#en-switch');
+
+  pl.on('click', languageSwitchPL);
+  en.on('click', languageSwitchEN);
+
   formSend(); // ---------------
 
   slider(W); // -----------
@@ -26,6 +34,106 @@ $(document).ready(function() {
   map();  // ------------
   
 }); // ready -----------------
+
+function languageSwitchPL(){
+  language = 'pl';
+  languageSwitch(language);
+}
+function languageSwitchEN(){
+  language = 'en';
+  languageSwitch(language);
+}
+function languageSwitch(lang){  // -------------------
+
+  fetch(`files/languages/${lang}.json`).
+  then(function(res){
+    return res.json();
+  }).
+  then(function(json){
+    let x = 0;
+
+    // nav  \/ ----------------------
+    let target = $('nav a');
+    let content = [];
+    for(let i in json.nav){
+      content.push(json.nav[i]);
+    }
+    target.each(function(){
+      $(this).text(content[x]);
+      x++;
+    });
+    x = 0;
+    // nav  /\ -------------------------
+
+    // about  \/ ----------------------
+    target = $('#about .el');
+    content = [];
+    for(let i in json.about){
+      content.push(json.about[i]);
+    }
+    target.each(function(){
+      $(this).text(content[x]);
+      x++;
+    });
+    x = 0;
+    // about  /\ -------------------------
+
+    // section2  \/ ----------------------
+    target = $('#section2 h2');
+    content = [];
+    for(let i in json.section2.h2){
+      content.push(json.section2.h2[i]);
+    }
+    target.each(function(){
+      $(this).text(content[x]);
+      x++;
+    });
+    x = 0;
+    target = $('#section2 p');
+    content = [];
+    for(let i in json.section2.p){
+      content.push(json.section2.p[i]);
+    }
+    target.each(function(){
+      $(this).text(content[x]);
+      x++;
+    });
+    x = 0;
+    // section2  /\ -------------------------
+
+    // offer  \/ ----------------------
+    target = $('#offer figcaption');
+    content = [];
+    for(let i in json.offer){
+      content.push(json.offer[i]);
+    }
+    target.each(function(){
+      $(this).text(content[x]);
+      x++;
+    });
+    x = 0;
+    // offer  /\ -------------------------
+
+    // partners  \/ ----------------------
+      $('.s4-header').text(json.partners);
+    // partners  /\ -------------------------
+
+    // contect  \/ ----------------------
+    $('.s5 h2').text(json.contact.head);
+    $('.s5 .name').attr("placeholder", json.contact.name);
+    $('.s5 .email').attr("placeholder", json.contact.email);
+    $('.s5 .textarea').attr("placeholder", json.contact.message);
+    $('.s5 .button').attr("value", json.contact.button);
+    $('.aside-email').text(json.contact.aside);
+    // contect  /\ -------------------------
+
+    // footer  \/ ----------------------
+    $('footer').text(json.footer);
+    // footer  /\ -------------------------
+
+  });
+
+} // languageSwitch ------------------------------
 
 
 function formSend(){  // ------------------------
@@ -47,19 +155,39 @@ function formSend(){  // ------------------------
 
     // sprawdzenie poprawności -----------------
     if(name==""){ 
-      formError.append("Musisz podać imię.<br>");
+      if(language==='pl'){
+        formError.append("Musisz podać imię.<br>");
+      }
+      else{
+        formError.append("Must type name.<br>");
+      }
       valid = false;
      }
     if(email==""){
-      formError.append("Musisz podać adres email.<br>");
+      if(language==='pl'){
+        formError.append("Musisz podać adres email.<br>");
+      }
+      else{
+        formError.append("Must type email address.<br>");
+      }
       valid = false;
     }
     else if(!emailRegex.test(email)){
-      formError.append("Niepoprawny adres email.<br>");
+      if(language==='pl'){
+        formError.append("Niepoprawny adres email.<br>");
+      }
+      else{
+        formError.append("Wrong email address.<br>");
+      }
       valid = false;
     }
     if(content==""){
-      formError.append("Musisz wpisać wiadomość.");
+      if(language==='pl'){
+        formError.append("Musisz wpisać wiadomość.");
+      }
+      else{
+        formError.append("Must type message");
+      }
       valid = false;
     } // sprawdzenie poprawności ----------------
 
@@ -77,7 +205,7 @@ function formSend(){  // ------------------------
 
       XHR.open("POST", "contact.php", true);
       XHR.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      XHR.send("name="+name+"&email="+email+"&content="+content);
+      XHR.send("name="+name+"&email="+email+"&content="+content+"$lang="+language);
 
     } // zapytanie do serwera ----------------
 

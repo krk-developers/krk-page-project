@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "about": "ABOUT US",
+    "offer": "OFFER",
+    "partners": "PARTNERS",
+    "contact": "CONTACT"
+  },
+  "header": "sample",
+  "about": {
+    "el1": "EN - Lorem ipsum dolor sit amet consectetur, adipiscing elit facilisis.",
+    "el2": "EN - Nulla cubilia urna semper et proin, phasellus vitae tempus hendrerit.",
+    "el3": "EN - Vehicula magnis odio quam, sociosqu in eleifend, felis convallis.",
+    "el4": "EN - Suscipit luctus quisque interdum taciti vulputate, condimentum integer sapien cras.",
+    "el5": "EN - Est vehicula convallis lacinia tempor aliquam, pulvinar cum in.",
+    "el6": "EN - Fringilla placerat dictumst a, vel urna semper, risus rutrum.",
+    "el7": "EN - Nascetur a varius velit ut non, facilisis felis venenatis.",
+    "el8": "EN - Vitae vehicula sagittis vulputate vel phasellus, mi id pellentesque."
+  },
+  "section2": {
+    "h2": {
+      "head1": "Section 1",
+      "head2": "Section 2",
+      "head3": "Section 3",
+      "head4": "Section 4"
+    },
+    "p": {
+    "p1": "EN - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p2": "EN - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p3": "EN - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "p4": "EN - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    }
+  },
+  "offer": {
+    "figcap1": "Picture 1",
+    "figcap2": "Picture 2",
+    "figcap3": "Picture 3",
+    "figcap4": "Picture 4"
+  },
+  "partners": "Our partners",
+  "contact": {
+    "head": "CONTACT",
+    "name": "type your name",
+    "email": "type ypur email",
+    "message": "type message",
+    "button": "Send",
+    "aside": "Our email address."
+  },
+  "footer": "KRK Partnerzy Digital Solutions 2018 &copy &#8195 All Rights Reserved."
+}

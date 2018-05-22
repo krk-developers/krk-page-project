@@ -2,11 +2,18 @@
 
 $valid = true;
 
+$lang = $_REQUEST["lang"];
+
 if($_REQUEST["name"] != ""){
   $name = $_REQUEST["name"];
 }
 else{
-  echo "Musisz podać imię.\n";
+  if($lang=="pl"){
+    echo "Musisz podać imię.\n";
+  }
+  else{
+    echo "Must type name.\n";
+  }
   $valid = false;
 }
 
@@ -14,12 +21,22 @@ if($_REQUEST["email"] != ""){
   $email = $_REQUEST["email"];
 }
 else{ 
-  echo "Musisz podać adres email.\n";
+  if($lang=="pl"){
+    echo "Musisz podać adres email.\n";
+  }
+  else{
+    echo "Must type email address.\n";
+  }
   $valid = false;
 }
 
 if(isset($email) && sprawdz_mail($email) == -1) {
-  echo "Niepoprawny adres email.\n";
+  if($lang=="pl"){
+    echo "Niepoprawny adres email.\n";
+  }
+  else{
+    echo "Wrong email address.\n";
+  }
   $valid = false;
 }
 
@@ -27,7 +44,12 @@ if($_REQUEST["content"] != ""){
   $content = $_REQUEST["content"];
 }
 else{
-  echo "Musisz wpisać wiadomość.";
+  if($lang=="pl"){
+    echo "Musisz wpisać wiadomość.";
+  }
+  else{
+    echo "Must type message.";
+  }
   $valid = false;
 }
 
@@ -37,10 +59,20 @@ if($valid){
   $send_email = mail("sztefkokamil@gmail.com", $subject, $content);
   
   if ($send_email == false){
-    echo "Wiadomość nie została wysłana - błąd serwera.\nSpróbuj ponownie za kilka minut.";
+    if($lang=="pl"){
+      echo "Wiadomość nie została wysłana - błąd serwera.\nSpróbuj ponownie za kilka minut.";
+    }
+    else{
+      echo "Message has't been sent - server error.\nTry again in few minutes.";
+    }
   }
   else{
-    echo "Twoja wiadomość została wysłana.\nDziękujemy.";
+    if($lang=="pl"){
+      echo "Twoja wiadomość została wysłana.\nDziękujemy.";
+    }
+    else{
+      echo "Message has been sent.\nThank you.";
+    }
   }
 }
 
