@@ -205,7 +205,7 @@ function formSend(){  // ------------------------
 
       XHR.open("POST", "contact.php", true);
       XHR.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      XHR.send("name="+name+"&email="+email+"&content="+content+"$lang="+language);
+      XHR.send("name="+name+"&email="+email+"&content="+content+"&lang="+language);
 
     } // zapytanie do serwera ----------------
 
